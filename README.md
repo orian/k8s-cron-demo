@@ -3,12 +3,12 @@
 ```
 git clone https://github.com/orain/k8s-cron-demo
 cd k8s-cron-demo
-docker build orian/crondemo:v0
+docker build -t orian/crondemo:v0 .
 ```
 
 ## Ok, now one can test locally:
 ```
-docker run --rm -it --name crondemo orian/cron:v0
+docker run --rm -it --name crondemo orian/crondemo:v0
 
 # and after up to a minute, a new file: /tmp/alive.log is created:
 docker exec crondemo ls /tmp
