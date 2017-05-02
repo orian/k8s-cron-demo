@@ -1,0 +1,5 @@
+# a cron spec for starting jobs
+
+* * * * * root /bin/bash /alive.sh
+
+# cron needs an empty line at the end, leave this here.
