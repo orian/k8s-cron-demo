@@ -1,5 +1,7 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 # a cron spec for starting jobs
 
-* * * * * root /bin/bash /alive.sh
+* * * * * root /alive.sh
 
 # cron needs an empty line at the end, leave this here.
