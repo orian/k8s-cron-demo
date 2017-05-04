@@ -1,13 +1,17 @@
 FROM openjdk:8-jre
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update 
+RUN apt-get install -y --no-install-recommends \
+		apt-utils rsyslog
+RUN apt-get install -y --no-install-recommends \
 		cron \
 	&& rm -rf /var/lib/apt/lists/*
 
-COPY cronfile /etc/cron.d/crondemo
-RUN chmod 0644 /etc/cron.d/crondemo
+COPY cronfile /cronfile
+RUN chmod 0644 /cronfile
 
-COPY alive.sh /
+COPY alive.sh docker-entrypoint.sh /
+RUN chown root.root /*.sh
 
 # CMD cron -l 2 f
-CMD touch /var/log/cron.log && cron -l -f
+ENTRYPOINT ["/docker-entrypoint.sh"]
