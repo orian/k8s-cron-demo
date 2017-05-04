@@ -1,0 +1,7 @@
+---
+- name: DailyBackup
+  cmd: /alive.sh
+  time: '* * * * *'
+  onError: Stop
+  notifyOnError: true
+  notifyOnFailure: false
